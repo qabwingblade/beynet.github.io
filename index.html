@@ -3,15 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BeyNet Coming Soon</title>
+<title>BeyNet</title>
 
 <style>
 :root{
   --bg:#0b0b10;
   --fg:#eaeaf2;
-  --a1:#e84545;
-  --a2:#ffb347;
-  --a3:#00cfff;
 }
 html,body{height:100%}
 body{
@@ -24,39 +21,21 @@ body{
 }
 
 .card{
-  padding:40px 32px;
+  padding:28px 22px;
   border-radius:20px;
   background:rgba(255,255,255,.04);
   box-shadow:0 20px 50px rgba(0,0,0,.4);
   text-align:center;
-  max-width:420px;
+  max-width:520px;
+  width:calc(100vw - 28px);
 }
 
-.bey{
-  width:120px;
-  height:120px;
-  margin:0 auto 18px;
-  border-radius:50%;
-  background:conic-gradient(var(--a1),var(--a2),var(--a3),var(--a1));
-  animation:spin .6s linear infinite;
-  position:relative;
+.poster{
+  width:100%;
+  border-radius:14px;
+  display:block;
+  box-shadow:0 14px 40px rgba(0,0,0,.45);
 }
-.bey:after{
-  content:"";
-  position:absolute;
-  inset:18px;
-  border-radius:50%;
-  background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.35),rgba(0,0,0,.45) 70%);
-}
-@keyframes spin{to{transform:rotate(360deg)}}
-
-h1{
-  margin:0 0 6px;
-  font-size:20px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-}
-p{margin:4px 0 0;opacity:.85}
 
 .bar{
   height:3px;
@@ -83,63 +62,69 @@ p{margin:4px 0 0;opacity:.85}
 .footer{
   margin-top:16px;
   font-size:15px;
-  opacity:.9;
+  opacity:.92;
 }
 
-/* social section */
+/* socials */
 .socials{
   margin-top:14px;
   display:flex;
   justify-content:center;
-  gap:18px;
-  font-size:18px;
+  flex-wrap:wrap;
+  gap:14px;
+  font-size:15px;
 }
 .socials a{
   color:#cfd8ff;
   text-decoration:none;
+  padding:6px 10px;
+  border-radius:10px;
+  background:rgba(255,255,255,.05);
 }
-.socials a:hover{
-  text-decoration:underline;
-}
+.socials a:hover{ text-decoration:underline; }
 
-/* signup link */
+/* signup links */
 .signup{
   margin-top:14px;
+  display:grid;
+  gap:10px;
 }
 .signup a{
   color:#ffffff;
   text-decoration:none;
-  font-weight:600;
+  font-weight:650;
 }
-.signup a:hover{
-  text-decoration:underline;
-}
+.signup a:hover{ text-decoration:underline; }
 </style>
 </head>
 
 <body>
-<main class="card" role="main" aria-label="Coming soon">
-  <div class="bey" aria-hidden="true"></div>
-
-  <h1>Coming Soon</h1>
-  <p>Site is under construction.</p>
+<main class="card" role="main" aria-label="BeyNet">
+  <!-- Replace spinner + coming soon text with the flyer image -->
+  <img class="poster" src="double-trouble.jpg" alt="BeyNet Double Trouble Tournament flyer">
 
   <div class="bar" aria-hidden="true"></div>
 
   <div class="footer">This is BeyNet.</div>
 
-  <!-- Social icons (simple symbols) -->
-  <div class="socials">
+  <!-- Social links -->
+  <div class="socials" aria-label="BeyNet social links">
     <a href="https://www.youtube.com/@ThisisBeyNet" target="_blank" rel="noopener">▶ YouTube</a>
     <a href="https://www.instagram.com/ThisisBeyNet" target="_blank" rel="noopener">◎ Instagram</a>
     <a href="https://www.tiktok.com/@thisisbeynet" target="_blank" rel="noopener">♪ TikTok</a>
+    <a href="https://discord.gg/Ej5ShXNfjx" target="_blank" rel="noopener">💬 Discord</a>
   </div>
 
   <!-- Signup -->
   <div class="signup">
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSfrSuDNpvZ_ajJ-t525wJVLFjjd_l2eulG8-zl7IIY-k42gKQ/viewform?usp=dialog"
        target="_blank" rel="noopener">
-       Sign Up To Join The BeyNet Team Here
+      Sign Up To Join The BeyNet Team Here
+    </a>
+
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSehzi7Jf9D7MeIzpvZlZgIxNo5p0JDF37xsIEQcWIbzmgq37w/viewform?usp=header"
+       target="_blank" rel="noopener">
+      Sign Up for Double Trouble Now!
     </a>
   </div>
 </main>
