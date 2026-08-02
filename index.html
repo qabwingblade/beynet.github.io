@@ -96,15 +96,66 @@ body{
   font-weight:650;
 }
 .signup a:hover{ text-decoration:underline; }
+
+/* ------------------------- */
+/* Slideshow                 */
+/* ------------------------- */
+
+.slideshow{
+    position:relative;
+    width:100%;
+    max-width:500px;
+    margin:0 auto;
+}
+
+.slideshow img{
+    width:100%;
+    border-radius:12px;
+    display:block;
+    transition:opacity .4s ease-in-out;
+}
+
+.slide-dots{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin-top:12px;
+}
+
+.dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:rgba(255,255,255,.35);
+    transition:.3s;
+}
+
+.dot.active{
+    background:white;
+}
 </style>
 </head>
 
 <body>
 <main class="card" role="main" aria-label="BeyNet">
-  <!-- Replace spinner + coming soon text with the flyer image -->
-  <img class="poster" src="beynet_logo_anim001.gif" alt="BeyNet Logo">
+  <!-- Slideshow -->
+<div class="slideshow">
 
-  <div class="bar" aria-hidden="true"></div>
+  <a id="slide-link" target="_blank" rel="noopener">
+    <img id="slide-image" class="poster"
+         src="WS BeyNet Logo.png"
+         alt="Featured Image">
+  </a>
+
+  <div class="slide-dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+
+</div>
+
+  <!--div class="bar" aria-hidden="true"></div-->
 
   <div class="footer">This is BeyNet.</div>
 
@@ -116,13 +167,6 @@ body{
     <a href="https://discord.gg/Ej5ShXNfjx" target="_blank" rel="noopener">💬 Discord</a>
   </div>
 
-  <!-- Road To CEO Ticket Link -->
-  <div class="signup">
-    <a href="https://beynet-store.myshopify.com/"
-       target="_blank" rel="noopener">
-      Get Your Ticket to Road To CEO Tournament Here
-    </a>
-
   <!-- Signup -->
   <div class="signup">
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSfrSuDNpvZ_ajJ-t525wJVLFjjd_l2eulG8-zl7IIY-k42gKQ/viewform?usp=dialog"
@@ -132,5 +176,70 @@ body{
 
   </div>
 </main>
+<script>
+
+const slides = [
+    {
+        image: "WS BeyNet Logo.png",
+        link: "https://www.youtube.com/@ThisisBeyNet"
+    },
+    {
+        image: "Bladers Ready.png",
+        link: "https://www.etsy.com/shop/MonkiMatt?section_id=59428644"
+    },
+    {
+        image: "WS RTC.png",
+        link: "https://beynet-store.myshopify.com/"
+    }
+];
+
+let currentSlide = 0;
+
+const slideImage = document.getElementById("slide-image");
+const slideLink = document.getElementById("slide-link");
+const dots = document.querySelectorAll(".dot");
+
+function showSlide(index){
+
+    slideImage.style.opacity = 0;
+
+    setTimeout(() => {
+
+        slideImage.src = slides[index].image;
+        slideLink.href = slides[index].link;
+
+        dots.forEach(dot => dot.classList.remove("active"));
+        dots[index].classList.add("active");
+
+        slideImage.style.opacity = 1;
+
+    },200);
+
+}
+
+function nextSlide(){
+
+    currentSlide++;
+
+    if(currentSlide >= slides.length){
+        currentSlide = 0;
+    }
+
+    showSlide(currentSlide);
+
+}
+
+// Automatically change every 7 seconds
+setInterval(nextSlide, 7000);
+
+// Allow clicking the dots to change slides
+dots.forEach((dot,index)=>{
+    dot.addEventListener("click",()=>{
+        currentSlide = index;
+        showSlide(currentSlide);
+    });
+});
+
+</script>
 </body>
 </html>
