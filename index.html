@@ -179,7 +179,8 @@ body{
 <script>
 
 const slides = [
-    {
+
+	{
         image: "WS RTC.png",
         link: "https://beynet-store.myshopify.com/"
     },
@@ -228,6 +229,8 @@ function nextSlide(){
     showSlide(currentSlide);
 
 }
+// Activate link on open
+showSlide(currentSlide);
 
 // Automatically change every 7 seconds
 setInterval(nextSlide, 7000);
