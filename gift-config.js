@@ -7,5 +7,4 @@ export const firebaseConfig = {
   appId: "1:830638268997:web:234021838eccc09b8ff92c"
 };
 
-export const appCheckSiteKey = "REPLACE_WITH_RECAPTCHA_V3_SITE_KEY";
 export const functionsRegion = "us-central1";
