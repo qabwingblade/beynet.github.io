@@ -24,7 +24,7 @@ function hashKey(value) {
 }
 
 exports.submitGiftClaim = onCall(
-  {region: "us-central1", enforceAppCheck: true},
+  {region: "us-central1"},
   async (request) => {
     const data = request.data || {};
 
