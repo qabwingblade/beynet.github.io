@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0b10">
+<title>Claim Your BeyNet Gift</title>
+<style>
+:root{color-scheme:dark;--bg:#0b0b10;--panel:#171720;--field:#252530;--fg:#f4f4f8;--muted:#a5a5b1;--mint:#23f3ac;--line:#343440;--danger:#ff7777}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;padding:28px 14px;display:flex;justify-content:center;align-items:flex-start;background:radial-gradient(ellipse at top,#0b0b10 0%,var(--bg) 48%);color:var(--fg);font-family:system-ui,Segoe UI,Roboto,Inter,Arial,sans-serif}
+main {
+  width: min(100%, 620px);
+  padding: 24px 20px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.04);
+  box-shadow: 0 20px 50px rgba(0,0,0,.4);
+}
+header{text-align:center;margin:8px 0 22px}
+.logo-frame {
+  width: min(100%, 220px);
+  height: 116px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px dashed #ffffff45;
+  border-radius: 14px;
+  background: rgba(255,255,255,.035);
+}
+
+.logo {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.logo-placeholder {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-align: center;
+  padding: 12px;
+}
+h1{font-size:clamp(28px,6vw,38px);letter-spacing:.04em;margin:14px 0 5px}
+.subtitle{color:var(--muted);margin:0}
+.accent{height:3px;width:72px;background:var(--mint);border-radius:9px;margin:16px auto 0}
+form,
+.result {
+  background: rgba(255,255,255,.035);
+  border: 1px solid #ffffff12;
+  border-radius: 20px;
+  padding: clamp(18px, 4vw, 28px);
+  box-shadow: 0 20px 50px rgba(0,0,0,.4);
+}
+h2{font-size:18px;margin:0 0 16px}
+.section+.section{border-top:1px solid var(--line);margin-top:24px;padding-top:22px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.field{display:flex;flex-direction:column;gap:7px;min-width:0}
+.field.full{grid-column:1/-1}
+label{font-size:13px;font-weight:650;color:#f1f1f5}
+input{width:100%;min-height:46px;border:1px solid #41414e;border-radius:10px;background:var(--field);color:var(--fg);padding:11px 12px;font:inherit;font-size:15px}
+input:focus{outline:2px solid var(--mint);outline-offset:1px;border-color:transparent}
+input::placeholder{color:#888895}
+.hint{font-size:12px;color:var(--muted);line-height:1.45}
+button{width:100%;margin-top:22px;min-height:50px;border:0;border-radius:11px;background:var(--mint);color:#07130f;font-weight:850;font-size:15px;letter-spacing:.035em;cursor:pointer}
+button:disabled{opacity:.55;cursor:wait}
+#message{display:none;margin-top:16px;padding:13px 14px;border-radius:10px;font-size:14px;line-height:1.5}
+#message.show{display:block}
+#message.error{background:#5b2428;color:#ffe3e3;border:1px solid #a94d55}
+#message.success{background:#123d30;color:#d7fff0;border:1px solid #268b69}
+.privacy{color:var(--muted);font-size:12px;text-align:center;line-height:1.5;margin:17px 8px 0}
+.back{display:inline-block;color:#cfd8ff;text-decoration:none;font-size:13px;margin:0 0 16px}
+.back:hover{text-decoration:underline}
+.hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+@media(max-width:520px){.fields{grid-template-columns:1fr}.field.full{grid-column:auto}body{padding-top:14px}}
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="index.html">← Main Page</a>
+  <header>
+    <div class="logo-frame">
+	  <img
+		class="logo"
+		src="BeyNet Logo.gif"
+		alt="BeyNet Logo"
+		onerror="this.hidden=true;this.nextElementSibling.hidden=false"
+	  >
+	  <div class="logo-placeholder" hidden>
+		UPLOAD BEYNET LOGO GIF
+	  </div>
+	</div>
+    <h1>CLAIM YOUR GIFT</h1>
+    <p class="subtitle">A little something from BeyNet being apart of RvB 2026!</p>
+    <div class="accent"></div>
+  </header>
+  <form id="gift-form" novalidate>
+    <section class="section">
+      <h2>Your Information</h2>
+      <div class="fields">
+        <div class="field full">
+          <label for="fullName">Full Name *</label>
+          <input id="fullName" name="fullName" autocomplete="name" maxlength="100" required placeholder="Your full name">
+        </div>
+        <div class="field full">
+          <label for="bladerName">Blader Name *</label>
+          <input id="bladerName" name="bladerName" maxlength="60" required autocomplete="nickname" placeholder="Your Beyblade / tournament name">
+          <span class="hint">One gift claim is allowed per blader name.</span>
+        </div>
+        <div class="field full">
+          <label for="email">Email Address *</label>
+          <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required placeholder="you@example.com">
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <h2>Shipping Information</h2>
+      <div class="fields">
+        <div class="field full">
+          <label for="addressLine1">Street Address *</label>
+          <input id="addressLine1" name="addressLine1" autocomplete="address-line1" maxlength="150" required placeholder="Street address">
+        </div>
+        <div class="field full">
+          <label for="addressLine2">Apartment / Unit</label>
+          <input id="addressLine2" name="addressLine2" autocomplete="address-line2" maxlength="100" placeholder="Optional">
+        </div>
+        <div class="field">
+          <label for="city">City *</label>
+          <input id="city" name="city" autocomplete="address-level2" maxlength="80" required placeholder="City">
+        </div>
+        <div class="field">
+          <label for="state">State / Province *</label>
+          <input id="state" name="state" autocomplete="address-level1" maxlength="80" required placeholder="State or province">
+        </div>
+        <div class="field">
+          <label for="postalCode">ZIP / Postal Code *</label>
+          <input id="postalCode" name="postalCode" autocomplete="postal-code" maxlength="20" required placeholder="Postal code">
+        </div>
+        <div class="field">
+          <label for="country">Country *</label>
+          <input id="country" name="country" autocomplete="country-name" maxlength="80" required placeholder="Country">
+        </div>
+      </div>
+    </section>
+    <div class="hp" aria-hidden="true">
+      <label for="website">Leave this field empty</label>
+      <input id="website" name="website" tabindex="-1" autocomplete="off">
+    </div>
+    <button id="submit-button" type="submit">SUBMIT</button>
+    <div id="message" role="status" aria-live="polite"></div>
+  </form>
+  <p class="privacy">Your information will be used by BeyNet to verify this gift claim and arrange delivery. Please submit only if you are authorized to provide these details.</p>
+</main>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+import { getFunctions } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-functions.js";
+import { firebaseConfig, functionsRegion } from "./gift-config.js";
+
+const app = initializeApp(firebaseConfig);
+const functions = getFunctions(app, functionsRegion);
+initializeAppCheck(app,{provider:new ReCaptchaV3Provider(appCheckSiteKey),isTokenAutoRefreshEnabled:true});
+const submitGiftClaim=httpsCallable(functions,"submitGiftClaim");
+const form=document.getElementById("gift-form");
+const button=document.getElementById("submit-button");
+const message=document.getElementById("message");
+
+function showMessage(text,type){
+  message.textContent=text;
+  message.className=`show ${type}`;
+}
+form.addEventListener("submit",async(event)=>{
+  event.preventDefault();
+  message.className="";
+  if(!form.reportValidity()) return;
+  const values=Object.fromEntries(new FormData(form).entries());
+  if(values.website){showMessage("Unable to process this submission.","error");return;}
+  delete values.website;
+  button.disabled=true;
+  button.textContent="VERIFYING CLAIM…";
+  try{
+    const result=await submitGiftClaim(values);
+    if(result.data?.success){
+      form.reset();
+      showMessage("Your gift claim has been received! Thank you. BeyNet will use the information provided to arrange delivery.","success");
+    }else{
+      showMessage("We couldn't confirm your claim. Please try again.","error");
+    }
+  }catch(error){
+    const code=error?.code||"";
+    if(code==="functions/already-exists"){
+      showMessage("A gift claim has already been submitted using this blader name. If you believe this is a mistake, please contact BeyNet.","error");
+    }else if(code==="functions/invalid-argument"){
+      showMessage(error.message||"Please review the information and try again.","error");
+    }else{
+      console.error("Gift claim submission failed:",error);
+      showMessage("We couldn't submit your claim right now. Please try again later or contact BeyNet.","error");
+    }
+  }finally{
+    button.disabled=false;
+    button.textContent="SUBMIT";
+  }
+});
+</script>
+</body>
+</html>

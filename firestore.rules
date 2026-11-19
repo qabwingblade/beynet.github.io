@@ -1,0 +1,10 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Gift claims and uniqueness keys are written only by the trusted
+    // Cloud Function using the Admin SDK. No browser reads or writes.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
