@@ -1,11 +1,7 @@
 {
-  "functions": [
-    {
-      "source": "functions",
-      "codebase": "default",
-      "runtime": "nodejs22"
-    }
-  ],
+  "functions": {
+    "source": "."
+  },
   "firestore": {
     "rules": "firestore.rules"
   }
