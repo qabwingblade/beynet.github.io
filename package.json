@@ -1,13 +1,9 @@
 {
-  "name": "beynet-gift-redemption-functions",
-  "private": true,
+  "name": "beynet-gift-functions",
+  "description": "BeyNet Gift Redemption Backend",
+  "main": "index.js",
   "engines": {
     "node": "22"
-  },
-  "main": "index.js",
-  "scripts": {
-    "serve": "firebase emulators:start --only functions,firestore",
-    "deploy": "firebase deploy --only functions,firestore:rules"
   },
   "dependencies": {
     "firebase-admin": "^13.0.0",
